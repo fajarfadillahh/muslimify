@@ -1,0 +1,22 @@
+@layer components {
+  /* section class */
+  .section {
+    @apply pt-24 pb-16;
+  }
+  .section-title {
+    @apply font-bold text-gray-900 dark:text-white;
+  }
+  .section-text {
+    @apply font-medium text-gray-600 dark:text-white;
+  }
+
+  /* container class */
+  .container {
+    @apply mx-auto w-[calc(100%-3rem)] max-w-[768px];
+  }
+
+  /* main class */
+  .main {
+    @apply mx-auto min-h-screen max-w-[480px] overflow-hidden bg-gray-100 transition dark:bg-gray-900;
+  }
+}
