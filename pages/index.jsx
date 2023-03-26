@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 // components
-import Layout from '@/components/Layout';
-import Hero from '@/components/Hero';
-import SurahList from '@/components/SurahList';
+import Layout from "@/components/Layout";
+import Hero from "@/components/Homepage/Hero";
+import SurahList from "@/components/Homepage/SurahList";
 
 export default function Home({ dataSurah }) {
   const [dataQuote, setDataQuote] = useState({
-    text: '',
-    reference: '',
+    text: "",
+    reference: "",
   });
 
   useEffect(() => {
-    fetch('https://apimuslimify.vercel.app/api/v2/quote')
+    fetch("https://apimuslimify.vercel.app/api/v2/quote")
       .then((response) => response.json())
       .then((result) => setDataQuote(result.data));
   }, []);
@@ -26,7 +26,7 @@ export default function Home({ dataSurah }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch('https://apimuslimify.vercel.app/api/v2/surah');
+  const response = await fetch("https://apimuslimify.vercel.app/api/v2/surah");
   const result = await response.json();
 
   return {
