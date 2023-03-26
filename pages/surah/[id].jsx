@@ -1,10 +1,12 @@
 import Layout from "@/components/Layout";
 import Hero from "@/components/Surahpage/Hero";
+import SurahList from "@/components/Surahpage/SurahList";
 
 export default function SurahPage({ dataSurah }) {
   return (
     <Layout>
       <Hero dataSurah={dataSurah} />
+      <SurahList dataSurah={dataSurah} />
       {/* 1. taro codingannya di dalem layout mang */}
       {/* 2. layout ini induknya */}
       {/* 3. data surah udah ada isinya, lu tinggal loop ayatnya */}
