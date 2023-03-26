@@ -7,11 +7,6 @@ export default function SurahPage({ dataSurah }) {
     <Layout>
       <Hero dataSurah={dataSurah} />
       <SurahList dataSurah={dataSurah} />
-      {/* 1. taro codingannya di dalem layout mang */}
-      {/* 2. layout ini induknya */}
-      {/* 3. data surah udah ada isinya, lu tinggal loop ayatnya */}
-      {/* 4. dataSurah.ayat.map() */}
-      {/* 5. kalo udah hapus comment ini ya */}
     </Layout>
   );
 }

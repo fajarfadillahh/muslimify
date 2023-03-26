@@ -3,6 +3,7 @@ import { RiArrowLeftLine } from "react-icons/ri";
 
 // import components
 import Link from "next/link";
+import SurahAyat from "./SurahAyat";
 
 const SurahList = ({ dataSurah }) => {
   return (
@@ -17,7 +18,9 @@ const SurahList = ({ dataSurah }) => {
         </Link>
 
         <div className="grid gap-8">
-          <h2>surah list</h2>
+          {dataSurah.ayat.map((surah, index) => {
+            return <SurahAyat key={index} surah={surah} />;
+          })}
         </div>
       </div>
     </section>
