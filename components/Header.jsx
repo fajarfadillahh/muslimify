@@ -1,52 +1,26 @@
-import { useEffect, useState } from 'react';
-import { RiMoonClearFill, RiSunFill } from 'react-icons/ri';
+import { useEffect, useState } from "react";
+import { RiMoonClearFill, RiSunFill } from "react-icons/ri";
 
 // components
-import Link from 'next/link';
+import Link from "next/link";
 
 // hooks
-import UseDarkMode from '@/hooks/UseDarkMode';
+import UseDarkMode from "@/hooks/UseDarkMode";
 
 export default function Header() {
-  const [stickyHeader, setStickyHeader] = useState(false);
-  const [headerBgColor, setHeaderBgColor] = useState('bg-transparent');
-  const [textColor, setTextColor] = useState('text-white');
   const [isDarkMode, setIsDarkMode] = UseDarkMode();
-
-  function handleScroll() {
-    if (window.scrollY > 10) {
-      setStickyHeader(true);
-      setHeaderBgColor('bg-white shadow-lg dark:bg-gray-900');
-      setTextColor('text-gray-900 dark:text-white');
-    } else {
-      setStickyHeader(false);
-      setHeaderBgColor('bg-transparent shadow-none');
-      setTextColor('text-white');
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [stickyHeader]);
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 mx-auto max-w-[480px] transition ${headerBgColor}`}
+      className={`absolute inset-x-0 top-0 z-50 mx-auto max-w-[480px] transition bg-transparent`}
     >
       <div className="container flex h-24 items-center justify-between">
-        <Link
-          href="/"
-          className={`text-[24px] font-extrabold transition ${textColor}`}
-        >
+        <Link href="/" className={`text-[22px] font-extrabold text-white`}>
           Muslimify
         </Link>
 
         <div
-          className={`inline-flex cursor-pointer items-center gap-1 transition ${textColor}`}
+          className={`inline-flex cursor-pointer items-center gap-1 text-white`}
           onClick={() => setIsDarkMode(!isDarkMode)}
         >
           {!isDarkMode ? (
