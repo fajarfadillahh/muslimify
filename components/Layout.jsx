@@ -1,8 +1,9 @@
 // components
-import Head from 'next/head';
-import Header from './Header';
-import Footer from './Footer';
-import ScrollToTop from './ScrollToTop';
+import Head from "next/head";
+import Header from "./Header";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout({ children }) {
   return (
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <main className="main">{children}</main>
+      <Navbar />
       <Footer />
       <ScrollToTop />
     </>
