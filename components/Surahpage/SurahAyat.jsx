@@ -1,5 +1,3 @@
-import React from "react";
-
 const SurahAyat = ({ surah }) => {
   return (
     <div className="grid gap-3">

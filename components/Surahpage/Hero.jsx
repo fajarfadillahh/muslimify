@@ -1,5 +1,3 @@
-import React from "react";
-
 const Hero = ({ dataSurah }) => {
   const { arabic, latin, translation } = dataSurah;
 

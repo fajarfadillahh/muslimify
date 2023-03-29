@@ -1,37 +1,31 @@
-import { useEffect, useState } from "react";
-
 // components
-import Layout from "@/components/Layout";
-import Hero from "@/components/Homepage/Hero";
-import SurahList from "@/components/Homepage/SurahList";
+import Layout from '@/components/Layout';
+import Hero from '@/components/Homepage/Hero';
+import SurahList from '@/components/Homepage/SurahList';
 
-export default function Home({ dataSurah }) {
-  const [dataQuote, setDataQuote] = useState({
-    text: "",
-    reference: "",
-  });
-
-  useEffect(() => {
-    fetch("https://apimuslimify.vercel.app/api/v2/quote")
-      .then((response) => response.json())
-      .then((result) => setDataQuote(result.data));
-  }, []);
-
+export default function Home({ dataSurah, dataQuotes }) {
   return (
     <Layout>
-      <Hero dataQuote={dataQuote} />
+      <Hero dataQuotes={dataQuotes} />
       <SurahList dataSurah={dataSurah} />
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const response = await fetch("https://apimuslimify.vercel.app/api/v2/surah");
-  const result = await response.json();
+  const responses = await Promise.all([
+    fetch('https://apimuslimify.vercel.app/api/v2/surah'),
+    fetch('https://apimuslimify.vercel.app/api/v2/quotes'),
+  ]);
+
+  const results = await Promise.all(
+    responses.map((response) => response.json())
+  );
 
   return {
     props: {
-      dataSurah: result.data,
+      dataSurah: results[0].data,
+      dataQuotes: results[1].data,
     },
   };
 }
