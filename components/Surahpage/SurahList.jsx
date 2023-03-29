@@ -1,9 +1,8 @@
-import React from "react";
-import { RiArrowLeftLine } from "react-icons/ri";
+import { RiArrowLeftLine } from 'react-icons/ri';
 
 // import components
-import Link from "next/link";
-import SurahAyat from "./SurahAyat";
+import Link from 'next/link';
+import SurahAyat from './SurahAyat';
 
 const SurahList = ({ dataSurah }) => {
   return (
