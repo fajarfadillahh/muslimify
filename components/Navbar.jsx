@@ -1,8 +1,8 @@
-import { FaQuran, FaPrayingHands, FaStarAndCrescent } from 'react-icons/fa';
-import { useRouter } from 'next/router';
+import { FaQuran, FaPrayingHands, FaStarAndCrescent } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 // import components
-import Link from 'next/link';
+import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
@@ -12,16 +12,19 @@ const Navbar = () => {
       <div className="container">
         <ul className="flex items-center justify-around">
           {[
-            [<FaQuran />, 'Quran', '/'],
-            [<FaPrayingHands />, 'Prayer', '/prayer'],
-            [<FaStarAndCrescent />, 'Husna', '/husna'],
+            [<FaQuran />, "Quran", "/"],
+            [<FaPrayingHands />, "Prayer", "/prayer"],
+            [<FaStarAndCrescent />, "Husna", "/husna"],
           ].map(([icon, text, link]) => {
             return (
               <Link
                 href={link}
                 key={text}
                 className={`navbar-active inline-flex flex-col items-center gap-1 text-gray-600 cursor-pointer dark:text-gray-500 ${
-                  router.pathname === link ? 'active' : ''
+                  router.pathname === link ||
+                  (router.pathname.startsWith("/surah/") && link === "/")
+                    ? "active"
+                    : null
                 }`}
               >
                 <span className="text-[1.5rem]">{icon}</span>

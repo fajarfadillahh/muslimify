@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 // components
-import Head from 'next/head';
-import Header from './Header';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import ScrollToTop from './ScrollToTop';
+import Head from "next/head";
+import Header from "./Header";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Layout({ children }) {
   const router = useRouter();
@@ -17,7 +17,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <main className="main">{children}</main>
-      {router.pathname !== '/surah/[id]' ? <Navbar /> : null}
+      <Navbar />
       <Footer />
       <ScrollToTop />
     </>
