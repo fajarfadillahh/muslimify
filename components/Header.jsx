@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
-import { RiMoonClearFill, RiSunFill } from "react-icons/ri";
+import { useEffect, useState } from 'react';
+import { RiMoonClearFill, RiSunFill } from 'react-icons/ri';
+import { useTheme } from 'next-themes';
 
 // components
-import Link from "next/link";
-
-// hooks
-import UseDarkMode from "@/hooks/UseDarkMode";
+import Link from 'next/link';
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = UseDarkMode();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <header
@@ -21,9 +28,11 @@ export default function Header() {
 
         <div
           className={`inline-flex cursor-pointer items-center gap-1 text-white`}
-          onClick={() => setIsDarkMode(!isDarkMode)}
+          onClick={() =>
+            theme == 'dark' ? setTheme('light') : setTheme('dark')
+          }
         >
-          {!isDarkMode ? (
+          {theme == 'light' ? (
             <>
               <RiMoonClearFill size="20px" />
               <h3 className="text-[14px] font-bold">Dark Mode</h3>
