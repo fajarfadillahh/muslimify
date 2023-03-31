@@ -1,5 +1,3 @@
-import React from "react";
-
 const Hero = () => {
   return (
     <section className="bg-gradient-to-tl from-green-600 to-green-500 pt-32 pb-12">
