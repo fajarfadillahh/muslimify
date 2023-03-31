@@ -25,3 +25,8 @@
     @apply text-green-600 dark:text-green-600;
   }
 }
+
+/* prayerAccordion - prayer page */
+.ReactCollapse--collapse {
+  transition: height 150ms;
+}
