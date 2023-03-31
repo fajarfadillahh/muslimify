@@ -9,7 +9,7 @@ const PrayerAccordion = ({ prayer, isOpen, handleIsOpen }) => {
       }`}
       onClick={handleIsOpen}
     >
-      <div className="flex h-[72px] w-full cursor-pointer items-center justify-between px-4 text-gray-900 dark:text-white">
+      <div className="flex h-[72px] w-full items-center justify-between px-4 text-gray-900 dark:text-white">
         <h1 className="font-bold">{prayer.name}</h1>
         <RiArrowUpSLine
           className={`text-[1.5rem] transition ${
